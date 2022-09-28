@@ -12,6 +12,16 @@
             <CarCard :car="c.listing" :seller="c.seller" @deleteClassified="deleteClassified(c.id)" />
           </router-link>
         </div>
+        <div v-if="c.listingType == 'Job'">
+          <router-link :to="{
+            name: 'Details',
+            params:{
+              id: c.id
+            }
+          }">
+            <JobCard :job="c.listing" :seller="c.seller" @deleteClassified="deleteClassified(c.id)" />
+          </router-link>
+        </div>
       </div>
     </div>
   </div>

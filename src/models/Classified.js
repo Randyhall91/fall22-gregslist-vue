@@ -29,7 +29,7 @@ export class Classified {
       default:
         this.listing = data.listing
     }
-    this.seller = new SellerProfile(data.seller) // should I leave it a POJO???
+    this.seller = new SellerProfile(data.seller)
   }
 }
 

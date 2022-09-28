@@ -1,11 +1,15 @@
 <template>
   <div class="details" v-if="classified">
 
-    <div class="col-10 m-auto" v-if="classified.listingType == 'Car'">
+    <div class="col-10 m-auto mt-4" v-if="classified.listingType == 'Car'">
 
       <CarCard :car="classified.listing" :seller="classified.seller" />
     </div>
-    <div>{{classified.listingType}}</div>
+    <div class="col-10 m-auto mt-4" v-if="classified.listingType == 'Job'">
+
+      <JobCard :job="classified.listing" :seller="classified.seller" />
+    </div>
+
 
   </div>
   <div v-else>
@@ -21,6 +25,7 @@ import { AppState } from '../AppState.js';
 import CarCard from '../components/CarCard.vue';
 import { classifiedsService } from '../services/ClassifiedsService.js';
 import Pop from '../utils/Pop.js';
+import JobCard from '../components/JobCard.vue';
 
 export default {
   setup() {
@@ -42,6 +47,6 @@ export default {
       classified: computed(() => AppState.activeClassified)
     };
   },
-  components: { CarCard }
+  components: { CarCard, JobCard }
 }
 </script>

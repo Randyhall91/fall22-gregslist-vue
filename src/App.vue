@@ -2,14 +2,27 @@
   <main class="container-fluid">
     <div class="row">
       <div class="col-md-2 d-none d-md-block bg-dark text-light sidebar">
-        <Login />
 
+        <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+          <div class="d-flex flex-column align-items-center border-bottom">
+            <h1>GregsList</h1>
+          </div>
+        </router-link>
+        <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+          <div class="d-flex flex-column align-items-center mt-3">
+            <h3>Show Cars</h3>
+          </div>
+        </router-link>
         <button class="btn" data-bs-target="#classifiedsCanvas" data-bs-toggle="offcanvas" v-if="account.id">
           <span class="text-success lighten-30 selectable text-uppercase">
             Add a Listing
           </span>
         </button>
+        <!-- TODO add Cars Page -->
 
+        <div class="mt-login">
+          <Login />
+        </div>
       </div>
       <div class="col-md-10 main-content">
         <router-view />
@@ -47,6 +60,8 @@ export default {
   components: { Navbar, Login, ClassifiedForm }
 }
 </script>
+
+
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
@@ -57,5 +72,13 @@ export default {
 .main-content {
   height: 100vh;
   overflow-y: auto;
+}
+
+.mt-login {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
 </style>
